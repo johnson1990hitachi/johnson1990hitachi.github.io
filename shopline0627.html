@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
 
     <style>
+        /* 參考其他同學 */
         header{
             position: fixed;
             top: 0;
@@ -23,7 +25,6 @@
             background-color: #00142D;
             padding: 15px 0;
         }
-        /* 參考其他同學 */
         .header-top nav{
             padding: 0 60px;
         }
@@ -180,8 +181,53 @@
         .product-item .product-pic img{
             width: 100%;
         }
- 
+/*  
         
+/* 
+        .product-txt ul li::before,
+        .product-txt ul li::after
+        {
+            content: " ";
+            display:block;
+            position: absolute;
+        }
+        .product-txt ul li::before{
+            background-color:#DEEBFF;
+            border-radius: 50%;
+            width:18px;
+            height: 18px;
+            left: 0;
+            top: 7px;
+        }
+        .product-txt ul li::after{
+            border:1px solid #0061FF;
+            border-width: 0 0 1px 1px;
+            width:10px;
+            height:5px;
+            left:4px;
+            top: 11px;
+            transform: rotate(315deg);
+        }
+         */
+        /* .more-service .more-title >h2 {
+           width: 100%;
+           font-size: 42px;
+           margin: auto;
+           text-align: center;
+           padding: 35px 0;
+        }
+        .more-service {
+            width: 1500px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .more-service .wrap {
+            display: flex;
+            background-color: #666;
+        } */
+       
        .more-service {
            width: 100%;
            /* background-color: #666; */
@@ -209,6 +255,45 @@
            text-align: center;
        }
 
+       .brand{
+           width: 100%;
+           /* background-color: #666; */
+       }
+       .brand h2{
+           padding: 35px;
+           font-size: 35px;
+           text-align: center;
+       }
+       .brand h2 strong{
+           color: #0061FF;
+       }
+       .brand-wrap {
+           display: flex;
+       }
+       .brand-item {
+           margin: auto;
+           padding-bottom: 80px;
+       }
+
+       .fa-line {
+           color: green;
+       }
+
+       .BrandInfo{
+            width: 100%;
+            display: flex;
+       }
+       .BrandInfo-txt{
+           font-size: 20px;
+           padding-left: 30px;
+           width: 40%;
+       }
+       .BrandInfo-pic {
+           width: 55%;
+       }
+       .BrandInfo-pic img{
+           width: 100%;
+       }
 
 
     </style>
@@ -288,14 +373,14 @@
                     將電商行銷玩法一網打盡，助你成功優化行銷活動成效，刺激顧客下<br>
                     單、吸引鐵粉回購！
                 </p>
-                <ul>
+                <!-- <ul>
                     <li>超過 20 種優惠促銷功能</li>
                     <li>社群直播購物系統</li>
                     <li>會員分級／點數／購物金</li>
                     <li>Facebook／Google／LINE 廣告追蹤</li>
                     <li>Instagram 購物功能</li>
                     <li>Facebook／LINE 對話式購物</li>
-                </ul>
+                </ul> -->
                 <a href="#">
                     看看開店秘技  →
                 </a>
@@ -316,14 +401,14 @@
                     支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服<br>
                     務，加速消費者完成下單交易，大幅降低購物車放棄率！
                 </p>
-                <ul>
+                <!-- <ul>
                     <li>線上信用卡刷卡</li>
                     <li>第三方金流／行動支付整合</li>
                     <li>超商代碼／條碼繳費</li>
                     <li>多溫層宅配並指定運費</li>
                     <li>超商／宅配貨到付款</li>
                     <li>發票開立與串接</li>
-                </ul>
+                </ul> -->
                 <a href="#">
                     了解更多金物流  →
                 </a>
@@ -345,14 +430,14 @@
                     銷玩法一網打盡，助你成功優化行銷活動成效，刺激顧客下單、吸引鐵粉回<br>
                     購！
                 </p>
-                <ul>
+                <!-- <ul>
                     <li>超過 20 種優惠促銷功能</li>
                     <li>社群直播購物系統</li>
                     <li>會員分級／點數／購物金</li>
                     <li>Facebook／Google／LINE 廣告追蹤</li>
                     <li>Instagram 購物功能</li>
                     <li>Facebook／LINE 對話式購物</li>
-                </ul>
+                </ul> -->
                 <a href="#">
                     看更多優惠模組  →
                 </a>
@@ -373,14 +458,14 @@
                     不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單等各項<br>
                     虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。
                 </p>
-                <ul>
+                <!-- <ul>
                     <li>門市 POS 系統</li>
                     <li>線上線下會員／商品／庫存整合</li>
                     <li>門市快速集客工具</li>
                     <li>O2O 即時銷售報表分析</li>
                     <li>進銷庫存／調撥／多店管理</li>
                     <li>串接 Shopee 蝦皮購物庫存</li>
-                </ul>
+                </ul> -->
                 <a href="#">
                     了解更多全通路整合  →
                 </a>
@@ -472,8 +557,66 @@
         </div>
     </div>
     
-    
+    <!-- <div class="flot-message">
+        <a href="#">
+         <i class="fa fa-envelope fa-3x"></i>
+        </a>
+    </div> -->
 
+
+    <!-- <div class="brand">
+        <div class="brand-item">
+       
+        </div>
+    </div> -->
+
+    <div class="brand">
+        <h2><strong>人氣品牌</strong>一致推薦使用</h2>
+
+        <div class="brand-wrap">
+        <div class="brand-item">
+            <i class="fab fa-line fa-8x"></i>
+        </div>
+        <div class="brand-item">
+            <i class="fab fa-line fa-8x"></i>
+        </div>
+        <div class="brand-item">
+            <i class="fab fa-line fa-8x"></i>
+        </div>
+        <div class="brand-item">
+            <i class="fab fa-line fa-8x"></i>
+        </div>
+        <div class="brand-item">
+            <i class="fab fa-line fa-8x"></i>
+        </div>           
+        </div>
+    </div>
+    
+    <div class="BrandInfo">
+        
+        <div class="BrandInfo-txt">
+            <a href="#">
+                excelsiorshop  →
+            </a>
+                
+            <p>
+                <br><br>
+                   SHOPLINE 的後台操作介面十分簡單，沒有技術背景<br>
+                   的人也能快速上手，加上功能實用、延伸性很夠，對<br>
+                   於建置品牌的購物網站來說是很好的選擇。
+            </p>
+
+            <p1>
+                <br><br><br>
+
+                EXCELSIOR台灣區總代理Roy
+            </p1>
+
+        </div>
+        <div class="BrandInfo-pic">
+                <img src="ShoplinePic/brand1.jpg" alt="">
+        </div>
+    </div>
 
 </body>
 </html>
