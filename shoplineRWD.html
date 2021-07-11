@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            position: relative;
+            display:flex;
+            justify-content: space-between;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            /* border: 1px solid  blue; */
+            box-sizing: border-box;
+            background-color: white;
+        }
+        header .logo{
+            width: 80px;
+        }
+        header .logo img {
+            vertical-align: middle;
+        }
+        
+        #menu_check{
+            display: none;
+        }
+        
+
+        @media screen and (max-width: 768px) {
+
+            .large-screen {
+                display: none;
+            }
+
+
+            .hb {
+            width: 32px;
+            height: 32px;
+            /* background-color: #f00; */
+            position: relative;
+        }
+        .hb span{
+            position: absolute;
+            display: block;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 80%;
+            height: 2px;
+            background-color: black;
+            transform: rotate(0deg);
+        }
+        .hb span:first-child{
+            top: 12px;
+        }
+        .hb span:nth-child(2){
+            opacity: 1;
+        }
+        .hb span:last-child{
+            bottom: 12px;
+        }
+        #menu_check:checked ~ header .hb span:first-child{
+            top: 0;
+            transform: rotate(45deg);
+            transition: top .1s;
+                        transform: .1s .1s;
+        }
+        #menu_check:checked ~ header .hb span:nth-child(2){
+            opacity: 0;
+        }
+        #menu_check:checked ~ header .hb span:last-child{
+            bottom: 0;
+            transform: rotate(-45deg);
+            transition: top .1s;
+                        transform: .1s .1s;
+        }
+
+        nav {
+            
+            position: absolute;
+            width: 80vw;
+            height: calc(100vh -52px);
+            top: 100%;
+            left: -100%;
+            background-color: rgb(204, 204, 204);
+            transition: 1s;
+        }
+        nav a{
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+
+            #menu_check:checked ~ header nav{
+           left:0;
+        }
+        .free {
+            padding: 20px;
+        }
+        .free a{
+            text-decoration: none;
+            background-color: #0061FF;
+            color: #fff;
+            margin: auto;
+            text-align: center;
+            width: 60%;
+            border-radius: 30px;
+        }
+        .login{
+            padding: 20px;
+            
+        }
+        .login a{
+            text-decoration: none;
+            background-color: #fff;
+            color: #0061FF;
+            margin: auto;
+            text-align: center;
+            border-style: solid;
+            width: 60%;
+            border-radius: 30px;
+        }
+        .banner {
+            width: 100%;
+            margin-top: 10px;
+            padding: 60px 12px;
+            align-items: center;
+            background-color: #021330;
+        }
+        .banner .banner-txt{
+            padding: 4px;
+            width: 100%;
+        }
+        .banner-txt h1{
+            font-size: 20px;
+            color: white;
+            padding: 10px 0px;
+        }
+        .banner-txt p {
+            /* padding: 30px 10px; */
+            font-size: 5px;
+            color: white;
+        }
+        .banner .banner-pic {
+            width: 100%;
+        }
+        .banner img {
+            width: 100%;
+        }
+        .banner .banner-txt input{
+            background-color: #021330;
+            font-size: 5px;
+            color: white;
+            padding: 10px 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .banner-txt .free {
+            padding: 5px;
+        }
+        .banner-txt .free a{
+            text-decoration: none;
+            background-color: #0061FF;
+            font-size: 5px;
+            padding: 5px 5px;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .title {
+            font-size: 15px;
+            text-align: center;
+            margin: 20px;
+        }
+        .title p {
+            padding-top: 15px;
+            font-size: 4px;
+        }
+
+        .product-group {}    
+
+        .product-pic {
+            width: 100%;
+        }
+        .product-pic img{
+            width: 100%;
+        }
+        .product-txt{
+            width: 100%;
+            padding: 15px 15px;
+        }
+        .product-txt ul{
+            width: 100%;
+            display:flex;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            padding-left: 0px;
+        } 
+        .product-txt ul li{
+            box-sizing: border-box;
+            font-size: 15px;
+            color:#355277;
+            line-height: 2.5;
+            display: inline-block;
+            width: 50%;
+            position: relative;
+            padding-left: 25px;
+
+        }
+
+        .product-txt ul li::before,
+        .product-txt ul li::after
+        {
+            content: " ";
+            display:block;
+            position: absolute;
+        }
+        .product-txt ul li::before{
+            background-color:#515d70;
+            border-radius: 50%;
+            width:18px;
+            height: 18px;
+            left: 0;
+            top: 8px;
+        }
+     
+        .more-service {
+            width: 100%;
+            background-color: #f4f5f7;
+        }
+        .more-service .more-title h2{
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .more-wrap {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .more-item {
+            width: 40%;
+            margin: auto;
+        }
+        .more-pic{
+            text-align: center;
+        }
+        .more-txt{
+            text-align: center;
+        }
+
+        }
+
+        @media screen and (min-width:769px) {
+            /* nav前2 */
+            /* nav {
+                display: flex;
+                align-items: center;
+            }
+            nav a{
+                padding: 0 10px;
+                text-decoration: none;
+            } */
+           
+            .small-screen {
+                display: none;
+            }
+
+            header{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            font-size: 0;
+            
+            /* z-index: 50; */
+            }
+            header img{
+                display: none;
+            }
+
+
+
+        .header-top{
+            width: 100%;
+            display: inline-block;
+            text-align: end;
+            background-color: #00142D;
+            padding: 15px 0;
+        }
+        .header-top nav{
+            padding: 0 60px;
+        }
+        .header-top a{
+            font-size: 15px;
+            text-decoration: none;
+            color: #fff;
+            padding: 0 15px;
+        }
+        .header-top a:hover{
+            color: #0061ff;
+        }
+        .header-top nav a:nth-child(2n){
+            border-left: 1px solid white;
+        }
+        .header-bottom{
+            display: flex;
+            font-size: 15px;
+            background-color: white;
+            height: 80px;
+            align-items: center;
+            padding: 0 60px;
+            justify-content: space-between;
+        }
+        .header-bottom .Shopline{
+            width: 150px;
+        }
+        .header-bottom .Shopline img{
+            width: 100%;
+        }
+        .header-bottom ul{
+            display: flex;
+        }
+        .header-bottom nav{
+            padding: 0 50px;
+        }
+        .header-bottom nav ul >li {
+            padding: 0 15px;
+        }
+        .header-bottom nav ul > li:hover{
+            text-decoration: underline #0061FF ;
+            text-decoration-thickness: 5px;
+            /* cursor: pointer; */
+            transition: .6s ease;
+            color: #0061FF;
+        }
+
+        .header-bottom .free a{
+            text-decoration: none;
+            border-radius: 20px;
+            background-color: #0061FF;
+            color: #fff;
+            padding: 15px 20px;
+            
+        }
+
+        .fa-envelope {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            padding: 20px;
+        } 
+
+        .banner {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            background-color: #021330;
+        }
+        .banner .banner-txt{
+            padding: 20px;
+            width: 50%;
+        }
+        .banner-txt h1 {
+            font-size: 50px;
+            color: white;
+        }
+        .banner-txt p {
+            font-size: 25px;
+            color: white;
+        }
+
+        .banner .banner-pic {
+            width: 50%;
+        }
+
+        .banner-pic img {
+            width: 100%;
+        }
+        .banner .banner-txt input{
+            background-color: #021330;
+            /* border-bottom: #666; */
+            /* border:white; */
+            font-size: 20px;
+            color: white;
+            padding: 15px;
+            /* border-bottom: dotted;
+            border-bottom-color: oldlace; */
+        }
+
+        .banner-txt .free {
+            padding: 20px;
+        }
+
+         .banner-txt .free a{
+            text-decoration: none;
+            background-color: #0061FF;
+            color: #fff;
+            padding: 15px 50px;
+            border-radius: 30px;
+        }
+
+        .title {
+            padding-top: 60px;
+            font-size: 35px;
+            text-align: center;
+            margin: 35px;
+        }
+
+        .title p {
+            padding-top: 20px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .product-group {}
+
+        .product-item:nth-child(even){
+            flex-direction: row-reverse;
+        }
+
+        .product-group .product-item{
+            display: flex;
+        }
+
+        .product-item .product-txt {
+            width: 50%;
+            padding: 35px 50px;
+        }
+        .product-txt h2{
+            font-size: 40px;
+        }
+        .product-txt p{
+            font-size: 20px;
+        }
+        .product-txt a{
+            font-size: 20px;
+            color: #0061ff;
+        }
+        .product-item .product-pic {
+            width: 50%;
+        }
+
+        .product-item .product-pic img{
+            width: 100%;
+        }
+ 
+        .product-txt ul{
+            width: 100%;
+            display:flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding-left: 0px;
+        } 
+        .product-txt ul li{
+            box-sizing: border-box;
+            font-size: 15px;
+            color:#355277;
+            line-height: 2.5;
+            display: inline-block;
+            width: 50%;
+            position: relative;
+            padding-left: 25px;
+
+        }
+
+        .product-txt ul li::before,
+        .product-txt ul li::after
+        {
+            content: " ";
+            display:block;
+            position: absolute;
+        }
+        .product-txt ul li::before{
+            background-color:#515d70;
+            border-radius: 50%;
+            width:18px;
+            height: 18px;
+            left: 0;
+            top: 8px;
+        }
+        
+        
+       
+       .more-service {
+           width: 100%;
+           /* background-color: #666; */
+           background-color: #f4f5f7;
+       }
+        .more-service .more-title h2{
+           padding: 30px;
+           text-align: center;
+           font-size: 35px
+       }
+       .more-wrap {
+           padding: 20px;
+           display: flex;
+           flex-wrap: wrap;
+       }
+       .more-item {
+           width: 30%;
+           margin: auto;
+           /* background-color: #DEEBFF; */
+       }
+       .more-pic{
+           text-align: center;
+       }
+       .more-txt{
+           text-align: center;
+       }
+
+
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="small-screen">
+    <div class="header-top">
+        <nav>
+            <a href="#">幫助中心</a>
+            <a href="#">登入網站</a>
+        </nav>
+    </div>
+    <input type="checkbox" id="menu_check">
+    <header>
+        <img src="pic/logo.png" class="logo">
+    <label class="hb" for="menu_check">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>   
+    <nav>
+        <a href="#">開店服務</a>
+        <a href="#">方案費用</a>
+        <a href="#">客戶案例</a>
+        <a href="#">開店說明會</a>
+        <a href="#">開店諮詢</a>
+        <a href="#">更多解決方案</a>
+        <a href="#">其他資源</a>
+        <div class="free">
+            <a href="#">免費試用</a>
+        </div>
+        <div class="login">
+            <a href="#">登入網店</a>
+        </div>
+    </nav>        
+    </header>    
+    </div>
+    
+    <div class="large-screen">
+        <div class="header-top">
+            <nav>
+                <a href="#">幫助中心</a>
+                <a href="#">登入網站</a>
+            </nav>
+        </div>
+        <div class="header-bottom">
+            <div class="Shopline">
+                <a href="#">
+                    <img src="ShoplinePic/logo.png">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li>開店服務</li>
+                    <li>方案費用</li>
+                    <li>客戶案例</li>
+                    <li>開店說明會</li>
+                    <li>開店諮詢</li>
+                    <li>更多解決方案</li>
+                    <li>其他資源</li>
+                </ul>
+            </nav>
+            <div class="free">
+                <a href="#">免費試用</a>
+            </div>                                                      
+        </div>
+    </div>
+
+
+
+
+    </header>
+
+     <div class="banner">
+        <div class="banner-txt">
+            <h1>想在哪開店創業？<br><span>網路開店一站式輕鬆開賣</span></h1>
+            <p>超過 25 萬品牌使用！從個人賣家到國際品牌，都能以  SHOPLINE 實現全通路零售，快速拓展市場到世界各地，輕鬆開始你的『 店 』商生意！</p>
+            
+        <div class="free">
+            <input type="input-email" type="email" placeholder="請在此輸入電子信箱 (可隨時更換)" required size="30" >
+            <a href="#">免費試用</a>
+            <!-- 不能對齊? -->
+        </div>
+        </div>
+        <div class="banner-pic">
+            <img src="ShoplinePic/2.jpg" alt="">
+        </div>
+    </div> 
+   
+    <div class="title">
+        <h2>單一平台就能助你<br>在全通路輕鬆開店創業</h2>
+        <p>
+            從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，
+            並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！
+        </p>
+    </div>
+    
+    <div class="product-group">
+        <div class="product-item">
+            <div class="product-pic">
+                <img src="ShoplinePic/1.jpg" alt="">
+            </div>
+            <div class="product-txt">
+               
+                <h2><strong>刺激下單，創造回購<br>
+                    行銷導流、促購模組任你玩</strong>
+                </h2>
+                <p>
+                    多元優惠活動、會員集客機制、網紅分潤以及直播購物等豐富功能，<br>
+                    將電商行銷玩法一網打盡，助你成功優化行銷活動成效，刺激顧客下<br>
+                    單、吸引鐵粉回購！
+                </p>
+                <ul>
+                    <li>超過 20 種優惠促銷功能</li>
+                    <li>社群直播購物系統</li>
+                    <li>會員分級／點數／購物金</li>
+                    <li>Facebook／Google／LINE 廣告追蹤</li>
+                    <li>Instagram 購物功能</li>
+                    <li>Facebook／LINE 對話式購物</li>
+                </ul>
+                <a href="#">
+                    看看開店秘技  →
+                </a>
+            </div>
+        </div>
+        
+        <div class="product-item">
+            <div class="product-pic">
+                <img src="ShoplinePic/3.png" alt="">
+            </div>
+            <div class="product-txt">
+                <h2><strong>支持海內外電商<br>
+                    金流、物流一次搞定</strong>
+                </h2>
+                <p>
+                    支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服<br>
+                    務，加速消費者完成下單交易，大幅降低購物車放棄率！
+                </p>
+                <ul>
+                    <li>線上信用卡刷卡</li>
+                    <li>第三方金流／行動支付整合</li>
+                    <li>超商代碼／條碼繳費</li>
+                    <li>多溫層宅配並指定運費</li>
+                    <li>超商／宅配貨到付款</li>
+                    <li>發票開立與串接</li>
+                </ul>
+                <a href="#">
+                    了解更多金物流  →
+                </a>
+            </div>   
+        </div>
+                
+        <div class="product-item">
+            <div class="product-pic">
+                <img src="ShoplinePic/4.png" alt="">
+            </div>
+            <div class="product-txt">
+                <h2><strong>刺激下單，創造回購<br>
+                    行銷導流、促購模組任你玩</strong>
+                </h2>
+                <p>
+                    多元優惠活動、會員集客機制、網紅分潤以及直播購物等豐富功能，將電商行<br>
+                    銷玩法一網打盡，助你成功優化行銷活動成效，刺激顧客下單、吸引鐵粉回<br>
+                    購！
+                </p>
+                <ul>
+                    <li>超過 20 種優惠促銷功能</li>
+                    <li>社群直播購物系統</li>
+                    <li>會員分級／點數／購物金</li>
+                    <li>Facebook／Google／LINE 廣告追蹤</li>
+                    <li>Instagram 購物功能</li>
+                    <li>Facebook／LINE 對話式購物</li>
+                </ul>
+                <a href="#">
+                    看更多優惠模組  →
+                </a>
+            </div>
+            
+        </div>
+           
+        <div class="product-item">
+            <div class="product-pic">
+                <img src="ShoplinePic/5.png" alt="">
+            </div>
+            <div class="product-txt">
+                <h2><strong>O2O 全通路無縫整併<br>
+                    輕鬆管理網店、門市以及其他通路</strong>
+                </h2>
+                <p>
+                    不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單等各項<br>
+                    虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。
+                </p>
+                <ul>
+                    <li>門市 POS 系統</li>
+                    <li>線上線下會員／商品／庫存整合</li>
+                    <li>門市快速集客工具</li>
+                    <li>O2O 即時銷售報表分析</li>
+                    <li>進銷庫存／調撥／多店管理</li>
+                    <li>串接 Shopee 蝦皮購物庫存</li>
+                </ul>
+                <a href="#">
+                    了解更多全通路整合  →
+                </a>
+            </div>
+            
+        </div>
+
+        <div class="more-service">
+            <div class="more-title">
+                <h2>更多功能與服務</h2>
+            </div>
+            <div class="more-wrap">
+                <div class="more-item">
+                    <div class="more-pic">
+                        <img src="ShoplinePic/more1.png" alt="">
+                    </div>
+                    <div class="more-txt">
+                        <h2>強大庫存及訂單系統</h2>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨<br>
+                            態一目瞭然，提升營運效率超有感。
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="more-item">
+                    <div class="more-pic">
+                        <img src="ShoplinePic/more2.png" alt="">
+                    </div>
+                    <div class="more-txt">
+                        <h2>強大庫存及訂單系統</h2>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨<br>
+                            態一目瞭然，提升營運效率超有感。
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="more-item">
+                    <div class="more-pic">
+                        <img src="ShoplinePic/more3.png" alt="">
+                    </div>
+                    <div class="more-txt">
+                        <h2>強大庫存及訂單系統</h2>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨<br>
+                            態一目瞭然，提升營運效率超有感。
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="more-item">
+                    <div class="more-pic">
+                        <img src="ShoplinePic/more4.png" alt="">
+                    </div>
+                    <div class="more-txt">
+                        <h2>強大庫存及訂單系統</h2>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨<br>
+                            態一目瞭然，提升營運效率超有感。
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="more-item">
+                    <div class="more-pic">
+                        <img src="ShoplinePic/more5.png" alt="">
+                    </div>
+                    <div class="more-txt">
+                        <h2>強大庫存及訂單系統</h2>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨<br>
+                            態一目瞭然，提升營運效率超有感。
+                        </p>
+                    </div>
+                </div>    
+    
+                <div class="more-item">
+                    <div class="more-pic">
+                        <img src="ShoplinePic/more6.png" alt="">
+                    </div>
+                    <div class="more-txt">
+                        <h2>強大庫存及訂單系統</h2>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨<br>
+                            態一目瞭然，提升營運效率超有感。
+                        </p>
+                    </div>
+                </div>    
+            </div>
+        </div>
+
+    </div>
+        
+    </div>
+
+</body>
+</html>
