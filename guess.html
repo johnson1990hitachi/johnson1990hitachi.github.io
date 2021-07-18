@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- <title>Hello, world!</title> -->
+
+    <style>
+        .container{
+            text-align: center;
+            padding: 20px;
+        }
+        .input-group  {
+          font-size: 35px;
+          
+        }
+        /* .list-group {
+          display: block;
+        } */
+        .list-group-item {
+          display: inline;
+          /* background-color: gray; */
+        }
+
+        .containerItem{}
+
+    </style>
+
+
+  </head>
+  <body>
+   
+    
+    <div class="container">
+        <button type="button" class="btn btn-outline-primary" id="start">開始</button>
+        <button type="button" class="btn btn-outline-secondary" id="abandon">放棄重來</button>
+        <button type="button" class="btn btn-outline-success" id="findAnswer">看答案</button>
+    </div>
+
+  
+    <div class="container">
+      <ul class="list-group">
+        <div class="list-group-item">
+          <span class="badge bg-secondary me-3"  id="listCheck">
+            0A0B
+          </span>
+          <!-- <div>123</div> -->
+          <!-- <div id="listInput">
+            輸入預覽
+          </div> -->
+          <!-- <button type="button" class="btn btn-outline-success" id="findAnswer">看答案</button> -->
+         <!-- <div>456</div> -->
+         <li class="list-inline-item" id="listInput">Lorem</li>
+        </div>
+         <!-- <div class="list-group-item"><span class="badge bg-secondary me-3">0A0B</span>輸入預覽</div> -->
+       
+    </ul>
+    </div>
+   
+
+
+
+    <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon1">猜答案</button>
+        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" id="input">
+        <button class="btn btn-outline-secondary" type="button" id="check">猜</button>
+       
+      
+
+      </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <script>
+
+     
+
+        
+      
+        //產生亂數達案
+        function getAnswer() {
+          let answer = [];
+          while(answer.length != 4) {
+            let num = Math.floor(10 * Math.random());
+            if (! answer.includes(num)) answer.push(num);
+          }
+
+          return answer;
+        }
+
+      
+        let guess = [];
+
+        //猜遊戲答案
+        function checkAnswer(){
+          guess = Array.from(document.querySelector("#input").value)
+                            .map(x => parseInt(x));
+
+          console.log(guess);
+
+          if ([...new Set(guess)].length != 4) {
+              console.warn('有重複');
+              return;
+          }
+
+          let intersection = answer.filter(x => guess.includes(x));
+          // console.log(intersection);
+
+          let a = intersection.filter(x => answer.indexOf(x) == guess.indexOf(x)).length;
+          let b = intersection.length -a ;
+
+         
+          //修改清單內容
+          document.querySelector("#listCheck").innerHTML = (`${a}A${b}B`);
+          let inputRegister = document.querySelector("#input").value;
+          document.querySelector("#listInput").innerHTML = inputRegister;
+         
+        }
+
+        //猜
+        document.querySelector("#check").onclick = function() {
+            checkAnswer();
+            // updateList();
+        }
+
+        //開始(產生數字)
+          document.querySelector("#start").onclick = function() {
+            answer = getAnswer();
+        }
+
+        //看答案
+        document.querySelector("#findAnswer").onclick = function() {
+          alert(`${answer}`);
+        }
+
+        //放棄重來
+        document.querySelector("#abandon").onclick = function() {
+          document.querySelector("#listCheck").innerHTML = (`0A0B`);
+          document.querySelector("#listInput").innerHTML = (`Lorem`);
+          alert(`${answer}`);
+        }
+
+
+        //資料放至清單
+        // function updateList(){
+        //     //輸入的數字
+         
+        //   // document.querySelector("#listInput").innerHTML = 123456;
+        //   document.querySelector("#listCheck").innerHTML = (`${a}A${b}B`);
+
+        // }
+
+      
+
+    </script>
+    
+  </body>
+</html>
