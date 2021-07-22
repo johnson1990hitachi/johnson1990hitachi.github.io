@@ -43,16 +43,16 @@
     </div>
 
   
-    <div class="container">
+    <div class="container" id="ContainerId">
       <ul class="list-group">
-        <div class="list-group-item">
+        <div class="list-group-item" id="listItem"> 
           <span class="badge bg-secondary me-3"  id="listCheck">
             0A0B
           </span>
-        
-         <li class="list-inline-item" id="listInput">Lorem</li>
+         <li class="list-inline-item" id="listInput">Lore</li>
         </div>
       
+       
     </ul>
     </div>
    
@@ -93,6 +93,7 @@
         let guess = [];
 
         //猜遊戲答案
+        //For版本
         function checkAnswer(){
           guess = Array.from(document.querySelector("#input").value)
                             .map(x => parseInt(x));
@@ -111,10 +112,29 @@
           let b = intersection.length -a ;
 
          
-          //修改清單內容
-          document.querySelector("#listCheck").innerHTML = (`${a}A${b}B`);
+         //猜的清單
+          let listAddress = document.querySelector("#ContainerId")
+          
+          let addGroup = document.createElement("ul");
+          let addList = document.createElement("div");
+          let addSpan = document.createElement("span");
+          let addLi   = document.createElement("li");
+          addGroup.classList.add('list-group');
+          addList.classList.add('list-group-item');
+          addSpan.classList.add('badge','bg-secondary','me-3');
+          addList.id = "listItem";
+          addSpan.id = "listCheck";
+          addSpan.innerText = (`${a}A${b}B`);
+          addLi.classList.add('list-inline-item');
+          addLi.id = "listInput";
           let inputRegister = document.querySelector("#input").value;
-          document.querySelector("#listInput").innerHTML = inputRegister;
+          addLi.innerText = inputRegister;
+
+         
+          addList.appendChild(addSpan);
+          addList.appendChild(addLi);
+          addGroup.appendChild(addList);
+          listAddress.appendChild(addGroup);
          
         }
 
@@ -140,18 +160,6 @@
           document.querySelector("#listInput").innerHTML = (`Lorem`);
           alert(`${answer}`);
         }
-
-
-        //資料放至清單
-        // function updateList(){
-        //     //輸入的數字
-         
-        //   // document.querySelector("#listInput").innerHTML = 123456;
-        //   document.querySelector("#listCheck").innerHTML = (`${a}A${b}B`);
-
-        // }
-
-      
 
     </script>
     
