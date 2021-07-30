@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>iPad</title>
+    <style>
+        
+
+        .display-img img {
+            top: 3rem;
+        }
+
+        label {
+            cursor: pointer;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+           
+        }
+
+        .color-img {
+            width: 25%;
+        }
+
+        label:hover {
+            border-color: gray;
+        }
+
+      
+        .text p {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .text a {
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        .color-label span {
+            
+            font-size: 10px;
+            color: gray;
+        }
+
+
+        input:checked+.color-label,
+        input:checked+.storage-label,
+        input:checked+.network-label {
+            border: 3px solid #1f7197;
+        }
+
+        .color-label,
+        .storage-label,
+        .network-label {
+            width: 45%;
+            padding: 15px 8px;
+        }
+
+     
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="display-img col-12 col-md-6">
+                <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-202009?wid=886&hei=1070&fmt=jpeg&qlt=80&.v=1599066777000"
+                    alt="" class="w-100 position-sticky">
+
+            </div>
+            <div class="text col-6 col-md-6">
+                <h1 class="mt-5 mb-5 d-none d-md-block">購買 iPad Air</h1>
+                <div class="pb-4 mb-4 border-bottom position-relative">
+                    <p>外觀</p>
+                    <div class="d-flex justify-content-between flex-wrap" >
+                        <form id="selColor" >
+                        <input type="radio" id="gray" name="color" class="d-none" value="太空灰色" >
+                        <label for="gray" class="color-label text-center mb-1">
+                            <div class="text-center mb-2">
+                                <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-spacegray-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422652805"
+                                    alt="" class="color-img">
+                            </div>
+                            <span>太空灰色</span>
+                        </label>
+                        <input type="radio" id="silver" name="color" class="d-none" value="銀色" >
+                        <label for="silver" class="color-label text-center mb-2">
+                            <div class="text-center mb-1">
+                                <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-silver-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422655664"
+                                    alt="" class="color-img">
+                            </div>
+                            <span>銀色</span>
+                        </label>
+                        <input type="radio" id="rose" name="color" class="d-none" value="玫瑰金色">
+                        <label for="rose" class="color-label text-center mb-2">
+                            <div class="text-center mb-1">
+                                <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-gold-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000"
+                                    alt="" class="color-img">
+                            </div>
+                            <span>玫瑰金色</span>
+                        </label>
+                        <input type="radio" id="green" name="color" class="d-none" value="綠色">
+                        <label for="green" class="color-label text-center mb-2">
+                            <div class="text-center mb-1">
+                                <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-green-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000"
+                                    alt="" class="color-img">
+                            </div>
+                            <span>綠色</span>
+                        </label>
+                        <input type="radio" id="blue" name="color" class="d-none" value="天藍色">
+                        <label for="blue" class="color-label text-center mb-2">
+                            <div class="text-center mb-1">
+                                <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202009?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1599240136000"
+                                    alt="" class="color-img">
+                            </div>
+                            <span>天藍色</span>
+                        </label>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="pb-4 mb-4 border-bottom position-relative">
+                    <p>儲存裝置</p>
+                    <div class="d-flex justify-content-between flex-wrap"> 
+                        <input type="radio" name="storage" class="d-none" id="smallGB"> 
+                        <label for="smallGB" class="storage-label text-center mb-3">
+                            <div class="text-center mb-2">
+                                <span>64GB</span>
+                            </div>
+                            <span>NT$18,900起</span>
+                        </label>
+                        <input type="radio" name="storage" class="d-none" id="largeGB">
+                        <label for="largeGB" class="storage-label text-center mb-3">
+                            <div class="text-center mb-2">
+                                <span>256GB</span>
+                            </div>
+                            <span>NT$23,900起</span>
+                        </label>
+                        
+                        <a href="#">你需要多少儲存空間?</a>
+                     </div> 
+                 </div> 
+
+                <div class="choose-looks pb-4 mb-4 border-bottom position-relative">
+                    <p>連線能力</p>
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <input type="radio" id="Wi-Fi" name="network" class="d-none">
+                        <label for="Wi-Fi" class="network-label text-center mb-3">
+                            <div class="text-center mb-2">
+                                <span>Wi-Fi</span>
+                            </div>
+                            <span>NT$18,900起</span>
+                        </label>
+                        <input type="radio" id="WiFICellular" name="network" class="d-none">
+                        <label for="WiFICellular" class="network-label text-center mb-3">
+                            <div class="text-center mb-2">
+                                <span>Wi-Fi+行動網路</span>
+                            </div>
+                            <span>NT$23,900起</span>
+                        </label>
+                        <a href="#">你需要Wi-Fi 或 WiFi + 行動網路機型?</a>
+                    </div>
+                </div>
+                <h1 id="allPrice">NT$13,500</h1>
+            
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 測試連線 -->
+    <!-- <button id="btnGetJSON">Request JSON</button>
+    <div id="msg"></div> -->
+
+    <script>
+
+        
+        const url = "https://raw.githubusercontent.com/apprunner/FileStorage/master/iPadAir2020_Data.json";
+
+
+
+        window.onload = function () {
+            requestIpadJson();
+        }
+
+        //連結JSON
+
+        let ipadArray = [];
+        let query = [];
+        let price = [];
+       
+        let xhr = new XMLHttpRequest();
+
+        function requestIpadJson() {
+            xhr.onload = function () {
+
+                ipadArray = this.response;
+                console.log(ipadArray);
+
+                //先將所有結果算出
+                query[0] = ipadArray.filter(item => item.storage == "64GB" && item.network == "Wi-Fi" && item.color == "銀色");
+                query[1] = ipadArray.filter(item => item.storage == "256GB" && item.network == "Wi-Fi" && item.color == "銀色");
+                query[2] = ipadArray.filter(item => item.storage == "64GB" && item.network == "Cellular" && item.color == "銀色");
+                query[3] = ipadArray.filter(item => item.storage == "256GB" && item.network == "Cellular" && item.color == "銀色");
+               
+                for(let i=0; i< 4; i++){
+                    price.push(query[i][0].price);
+                }
+            }
+
+            xhr.responseType = "json";
+            xhr.open("GET", url);
+            xhr.send();
+
+        }
+
+      
+
+        //事件更換顏色
+        let colAll = ["#gray", "#silver", "#rose", "#green", "#blue"];
+        let colImg = ["pic/gray.png", "pic/silver.png", "pic/rose.png", "pic/green.png", "pic/silver.png", "pic/blue.png"] 
+        let img = document.querySelector('img');
+
+
+        for (let i =0; i < colAll.length; i++){
+
+            let inputAll = document.querySelector(colAll[i]);
+            inputAll.addEventListener('click', function(){
+
+                img.setAttribute('src', colImg[i]);
+
+            })
+        }
+
+        //點選更新價格
+
+        let display = document.querySelector("#allPrice");
+        let content = [];
+
+        content[0] = document.querySelector("#smallGB");
+        content[1] = document.querySelector("#largeGB");
+        content[2] = document.querySelector("#Wi-Fi");
+        content[3] = document.querySelector("#WiFICellular");
+
+        for(let i = 0; i < 4; i++){
+            content[i].addEventListener('click', function(){
+                display.innerHTML = (`NT: ${price[i]} 元`);
+            });
+        }
+
+        
+      
+
+        
+          
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
