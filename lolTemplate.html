@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style>
+        .card {
+            border: 1px solid black;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .headshot {
+            overflow: hidden;
+        }
+
+        .card-title {
+            color: white;
+            background-color: black;
+            display: inline-block;
+            border-radius: 5px;
+            padding: 5px 15px 5px 15px;
+        }
+
+        .card-body {
+            background-color: #ffbf67;
+        }
+
+        .card:hover {
+            box-shadow: 8px 8px 15px #808080;
+            transform: translate(5px, 5px);
+        }
+
+        .card:hover img {
+            transform: scale(1.2);
+            transition: transform 0.5s;
+        }
+
+        .card:not(:hover) img {
+            transform: scale(1, 1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-body {
+            background-color: lightgreen !important;
+        }
+
+        .card:hover .card-title {
+            color: black;
+            background-color: white !important;
+        }
+        #pizzaImage {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <div class='jumbotron bg-success'>
+            <h1>LOL Template</h1>
+        </div>
+
+        <div class='row'>
+
+        </div>
+    </div>
+
+    <template id='cardPizza'>
+        <div class="card" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <button href="#" class="btn btn-primary">詳細內容</a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="pizzaImage">
+                    <!-- <h1 id="description" class="text-primary"></h1> -->
+                    <p id="Hp">HP :526</p>
+                    <p id="Move">Move Speed :330</p>
+                    <p id="Armor"></p>
+                    <p id="Spell"></p>
+                    <p id="Attack"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <script type='module'>
+        import { $g } from '../Modules/helpers.js';
+        let row = $g('.row');
+        let card = $g('#cardPizza');
+
+
+        //JSON設定
+        let url = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json';
+        let namesArray = [];
+        let championsObject = {};
+      
+        let nameChamp, names, hps, speeds, Armors, Spells, Attacks, blurbs;
+        let images;
+        let namesClick = [];
+        let hpClick =[];
+        let speedClick = [];
+        let ArmorClick = [];
+        let SpellClick = [];
+        let AttackClick = [];
+       
+
+
+
+
+        window.onload = function () {
+
+
+            //Fetch抓取網路資料
+            fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    let cloneContent;
+
+
+                    championsObject = result.data;
+                    namesArray = Object.keys(championsObject);
+                    // let nameOne = namesArray[0];
+
+                    namesArray.forEach((role, index) => {
+                        nameChamp = championsObject[role];
+                        names = nameChamp.name;
+                        blurbs = nameChamp.blurb;
+
+                        //點擊資料(需在點擊前準備)
+                        hps = nameChamp.stats.hp;
+                        speeds = nameChamp.stats.movespeed;
+                        Armors = nameChamp.stats.armor;
+                        Spells = nameChamp.stats.spellblock;
+                        Attacks = nameChamp.stats.attackdamage;
+                        
+                        //點集資料推送
+                        namesClick.push(names);
+                        hpClick.push(hps);
+                        speedClick.push(speeds);
+                        ArmorClick.push(Armors);
+                        SpellClick.push(Spells);
+                        AttackClick.push(Attacks);
+                        // console.log(nameChamp);
+                        // console.log(names);
+
+                        images = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + role + "_0.jpg";
+
+                        // console.log(images);
+                        cloneContent = card.content.cloneNode(true);
+                        cloneContent.querySelector("h5").innerText = (index + 1) + " . " + names;
+                        cloneContent.querySelector("img").src = images;
+                        cloneContent.querySelector("p").innerText = (blurbs.substr(0,28)) + "...."; 
+
+
+                        cloneContent.querySelector(".btn").addEventListener("click", function () {
+                            this.setAttribute("data-toggle", "modal");
+                            this.setAttribute("data-target", "#exampleModal");
+
+                            let modal = $g("#exampleModal");
+                            modal.querySelector("h5").innerText = namesClick[index];
+                            modal.querySelector("#pizzaImage").src = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + role + "_0.jpg";
+                            modal.querySelector("#Hp").innerText = `HP :   ${ hpClick[index]}  ` ;
+                            modal.querySelector("#Move").innerText = `Move Speed :   ${ speedClick[index]}  ` ;
+                            modal.querySelector("#Armor").innerText = `Armod :   ${ ArmorClick[index]}  ` ;
+                            modal.querySelector("#Spell").innerText = `Spell Block :   ${ SpellClick[index]}  ` ;
+                            modal.querySelector("#Attack").innerText = `Attack Range :   ${ AttackClick[index]}  ` ;
+
+                        })
+
+
+                        row.append(cloneContent);
+                    });
+
+
+
+                })
+                .catch(ex => { console.log(ex) })
+                .finally(() => {
+
+                });
+
+
+        }
+
+    </script>
+</body>
+
+</html>
