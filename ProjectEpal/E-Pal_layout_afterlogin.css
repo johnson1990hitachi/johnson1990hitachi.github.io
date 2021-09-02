@@ -405,6 +405,10 @@ footer #address{
         display: none;
     }
 
+    .phoneTopNav {
+        display: none;
+    }
+
     
     #gotop {
         position: fixed;

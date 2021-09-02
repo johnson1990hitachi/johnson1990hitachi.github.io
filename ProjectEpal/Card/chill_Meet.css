@@ -1,0 +1,258 @@
+body {
+	background-color: black;
+	font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+/* 卡片設定 */
+.card {
+	border-color: black;
+	margin-top: 25px;
+	border: 0;
+}
+
+.itemtop {
+	background-image: url('https://static-oss.epal.gg/data/static/bg_app_0104_AmongUs.png');
+	background-size: 100% 100%;
+	width: 100%;
+	text-align: center;
+}
+
+.itemtop .logoPic {
+	width: 50%;
+	padding: 0;
+	margin: 0;
+}
+
+.itemtop .headPic {
+	width: 60%;
+	position: relative;
+	bottom: -35px;
+}
+
+.itembottom {
+	background-image: url('');
+	background-color: #21212c;
+	color: blanchedalmond;
+	text-align: center;
+}
+
+.itembottom .txt {
+	margin-top: 45px;
+}
+
+.itembottom .txt p {
+	font-size: 15px;
+	margin: 8px;
+}
+
+.itembottom .txt span {
+	margin-bottom: 20px;
+}
+
+/* 表情 */
+#circle1 {
+	background: linear-gradient(143deg, #ffe99d, #ff3258);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+}
+
+#circle2 {
+	background: linear-gradient(135deg, #ff3fb5, #ff1f1f);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 90px;
+	height: 90px;
+}
+
+#circle3 {
+	background: linear-gradient(135deg, #2bffee, #1fb995);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 90px;
+	height: 90px;
+}
+
+#circle4 {
+	background: linear-gradient(135deg, #00fff7, #2e48ff);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+}
+
+/* 左部分 */
+.labelLeft {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.labelLeft a {
+	color: #fff;
+	margin: 20px;
+	text-decoration: none;
+}
+
+#chillLeft {
+	margin-right: 50px;
+}
+
+#chillLeft p {
+	color: white;
+	margin-top: 30px;
+}
+
+#labelMeet {
+	margin-top: -10px;
+	font-size: 40px;
+	border-bottom: 6px solid #7041e6;
+}
+
+#BackgrounLeft {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+#chillRight {
+	margin-left: 50px;
+}
+
+.labelRight {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.labelRight button {
+	border-radius: 20px;
+	margin: 15px;
+	font-size: x-large;
+}
+
+.labelRight button i {
+	size: 5px;
+}
+
+#BackgrounRight {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+/* 手機直向 xs/ */
+/* 目的:(1)調整表情的平板/桌機大小
+		(2)調整卡片置中 */
+
+@media screen and (max-width:767px) {
+	#chillLeft {
+		display: none;
+	}
+	#chillRight {
+		display: none;
+	}
+	body {
+		padding: 20px;
+		background-color: #7041e6;
+		;
+	}
+	.car {
+		margin-top: 30px;
+	}
+	#circle1 {
+		height: 64px;
+		width: 64px;
+	}
+	#circle2 {
+		height: 100px;
+		width: 100px;
+	}
+	#circle3 {
+		height: 100px;
+		width: 100px;
+	}
+	#circle4 {
+		height: 64px;
+		width: 64px;
+	}
+}
+
+/* 平板卡片置中 */
+@media screen and (min-width:768px) {
+	.card {
+		margin-top: 200px;
+	}
+	.circle {
+		margin: 0;
+	}
+	#circle1 {
+		height: 48px;
+		width: 48px;
+	}
+	#circle2 {
+		height: 64px;
+		width: 64px;
+	}
+	#circle3 {
+		height: 64px;
+		width: 64px;
+	}
+	#circle4 {
+		height: 48px;
+		width: 48px;
+	}
+	.labelRight button {
+		font-size: small;
+	}
+}
+
+/* / iPad橫向 lg/ */
+/* 平板卡片置中 */
+@media screen and (min-width:1025px) {
+	.card {
+		margin-top: 50px;
+	}
+	.circle {
+		margin: 0;
+	}
+	#circle1 {
+		height: 64px;
+		width: 64px;
+	}
+	#circle2 {
+		height: 90px;
+		width: 90px;
+	}
+	#circle3 {
+		height: 90px;
+		width: 90px;
+	}
+	#circle4 {
+		height: 64px;
+		width: 64px;
+	}
+	.labelRight button {
+		font-size: x-large;
+	}
+}
+
+/* / iPad Pro橫向 & 桌機 xl/ */
+@media screen and (min-width: 1366px) {
+	.circle {
+		margin: 5px;
+	}
+}
