@@ -33,20 +33,30 @@ body {
 	background-image: url('');
 	background-color: #21212c;
 	color: blanchedalmond;
-	text-align: center;
 }
 
 .itembottom .txt {
-	margin-top: 45px;
+	margin-top: 75px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
 
-.itembottom .txt p {
-	font-size: 15px;
+.itembottom .txt h3 {
+	font-size: 24px;
+	color: #fff;
 	margin: 8px;
 }
 
-.itembottom .txt span {
-	margin-bottom: 20px;
+.itembottom .txt p {
+	font-size: 14px;
+	color: #fff;
+	margin: 8px;
+	margin-bottom: 40px;
+}
+
+.fontSelect {
+	margin-top: 15px;
 }
 
 /* 表情 */
@@ -109,6 +119,7 @@ body {
 
 #chillLeft {
 	margin-right: 50px;
+	margin: 0 25px;
 }
 
 #chillLeft p {
@@ -168,7 +179,6 @@ body {
 	body {
 		padding: 20px;
 		background-color: #7041e6;
-		;
 	}
 	.car {
 		margin-top: 30px;
